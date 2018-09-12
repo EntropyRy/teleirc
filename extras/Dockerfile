@@ -1,10 +1,10 @@
-FROM node:argon
+FROM node:8-slim
 
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y libicu-dev && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update && apt-get install -y libicu-dev imagemagick webp && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN npm install -g teleirc && npm cache clear
+RUN npm install -g teleirc@0.4.8 && npm cache clear --force
 
 RUN useradd -ms /bin/bash teleirc
 USER teleirc

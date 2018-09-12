@@ -1,0 +1,8 @@
+version: '2'
+services:
+    teleirc:
+        restart: always
+        build: extras
+        volumes: 
+            - .data:/home/teleirc/.teleirc
+            - /etc/localtime:/etc/localtime:ro
